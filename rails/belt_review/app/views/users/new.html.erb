@@ -1,0 +1,42 @@
+<fieldset class="reg_log">
+    <legend>Register</legend>
+    <form action="/users" method="post"><br>
+        <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+        <label for="first_name">First Name:</label>
+        <input type="text" name="user[first_name]" value=""><br>
+        <label for="last_name">Last Name:</label>
+        <input type="text" name="user[last_name]" value=""><br>
+        <label for="email">Email:</label>
+        <input type="text" name="user[email]" value=""><br>
+        <label for="location">Location:</label>
+        <input type="text" name="user[location]" value=""><br>
+        <select name="user[state]">
+            <option value="MD">MD</option>
+            <option value="MD">VA</option>
+            <option value="MD">WV</option>
+            <option value="MD">NC</option>
+        </select><br><br>
+        <label for="password">Password:</label>
+        <input type="password" name="user[password]" value=""><br>
+        <p>*Password should be at least 8 characters</p>
+        <label for="confirm pw">Confirm PW:</label>
+        <input type="password" name="user[password_confirmation]" value=""><br>
+        <input type="submit" name="name" value="Register">
+    </form>
+</fieldset>
+<fieldset class="reg_log">
+    <legend>Login</legend>
+    <form action="/login" method="post">
+        <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+        <label for="email">Email:</label>
+        <input type="text" name="loginUser[email]"><br>
+        <label for="password">Password:</label>
+        <input type="password" name="loginUser[password]"><br>
+        <input type="submit" name="Login" value="Login">
+    </form>
+</fieldset>
+<% if flash[:errors]%>
+    <% flash[:errors].each do |error| %>
+        <li class="error"><%= error %></li>
+    <% end %>
+<% end %>

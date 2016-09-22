@@ -1,0 +1,46 @@
+<h3><%= @event.name %></h3>
+<div class="right_links">
+    <a href="/events">Events Dashboard</a> |
+    <a href="/logout">Logout</a>
+</div>
+<br>
+<div class="event_wrapper" style="display:inline-block">
+    <p>Host: <%= @event.user.first_name %></p>
+    <p>Date: <%= @event.date %></p>
+    <p>Location: <%= @event.location %></p>
+    <p>People who are joining the event: <%= @attending.count %></p>
+    <% if @attending.length > 0 %>
+    <table style="width:100%">
+        <thead>
+            <th>Name</th>
+            <th>Location</th>
+            <th>State</th>
+        </thead>
+        <tbody>
+            <% @attending.each do |attend| %>
+                <tr>
+                    <td><%= attend.user.first_name %></td>
+                    <td><%= attend.user.location %></td>
+                    <td><%= attend.user.state %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+    <% end %>
+</div>
+
+<div class="comments_wrapper"  style="display:inline-block: vertical-align:bottom">
+    <h4>Discussion about this event:</h4>
+    <div class="comments" style="height:10rem; width:100%; border:solid black 1px;">
+        <% @comments.each do |comment|%>
+            <p><%= comment.name%> says: <%= comment.comment%></p>
+            <hr>
+        <% end %>
+
+    </div>
+    <form action="/comments/<%= @event.id %>" method="post">
+        <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+        <textarea name="comment" rows="3" cols="40"></textarea><br>
+        <input type="submit" name="Submit Comments" value="Submit Comments">
+    </form>
+</div>

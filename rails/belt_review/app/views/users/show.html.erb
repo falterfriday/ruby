@@ -1,0 +1,24 @@
+<h3>Edit Your Profile</h3>
+<div class="right_links">
+    <a href="/events">Events Dashboard</a> |
+    <a href="/logout">Logout</a>
+</div>
+<br>
+<form class="edit_user" action="/users/<%=@current_user.id%>" method="post">
+    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+    <label for="first_name">First Name:</label>
+    <input type="text" name="user[first_name]" value="<%= @current_user.first_name %>"><br>
+    <label for="last_name">Last Name:</label>
+    <input type="text" name="user[last_name]" value="<%= @current_user.last_name %>"><br>
+    <label for="email">Email:</label>
+    <input type="text" name="user[email]" value="<%= @current_user.email %>"><br>
+    <label for="location">Location:</label>
+    <input type="text" name="user[location]" value="<%= @current_user.location %>"><br>
+    <select name="user[state]">
+        <option value="MD">MD</option>
+        <option value="MD">VA</option>
+        <option value="MD">WV</option>
+        <option value="MD">NC</option>
+    </select><br><br>
+    <input type="submit" name="Upadate Records" value="Update Records">
+</form>
