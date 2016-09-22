@@ -1,0 +1,30 @@
+rails new user_login_project
+cd user_login_project
+rails g method User
+rails g migration AddFirstNameToUser first_name:string
+rails g migration AddLastNameToUser last_name:string
+rails g migration AddEmailAddressToUser email_address:string
+rails g migration AddAgeToUser age:integer
+
+rails c
+>> User.create(first_name:"Test", last_name:"User, email_address:"whatwhat@gmail.com", age:33)
+>> User.create(first_name:"Test2", last_name:"User, email_address:"nothing@gmail.com", age:33)
+>>Hirb.enable
+>>User.all
+
+user.rb
+    validates :first_name, :last_name, presence:true, length: { in: 2..256}
+    validates :email_address, presence:true
+    validates :age , presence:true, numericality: { only_integer:true, greater_than:9, less_than:150 }
+
+>> User.all
+>> User.last
+>> User.first
+>> User.order(first_name: :desc)
+>> User.order(first_name: :asc)
+>> User.find(3)
+>> User.find(3).update(first_name:"Awesome")
+>> User.find(4).destroy
+>>
+>>
+>>
