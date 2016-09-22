@@ -1,0 +1,3 @@
+Dojo.find(1).ninjas.order(created_at: :desc)
+Dojo.find(2).ninjas.destroy_all
+Dojo.find(2).destroy
