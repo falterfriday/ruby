@@ -1,0 +1,7 @@
+rails g model Comment comment:string commentable:references{polymorphic}
+User.find(1).comments.create(comment: "Happy Comment")
+Comment.find(1).delete
+Comment.update(2, comment: "Warble Garble")
+Blog.find(1).comments.create(comment: "what?!?!")
+Comment.find(3).delete
+Comment.update(4, comment: "NICE!!!!")
