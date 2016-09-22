@@ -1,0 +1,8 @@
+Typed out the ones I struggled with
+Owner.create(user: User.first, blog: Blog.find(3))
+Owner.create(user: User.find(2), blog: Blog.find(4))
+Owner.update(user: User.last, blog: Blog.last)
+Blog.find(1).users
+Blog.find(2).posts.joins(:messages).select("*")
+Blog.find(2).posts.joins(:messages).joins(:user).select("*")
+Blog.first.owners.joins(:user).select("*")
