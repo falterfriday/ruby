@@ -1,0 +1,7 @@
+<h3>Share Your Mood</h3>
+<p>Please enter your emoji code here</p>
+<form action="/get_emoji" method="post">
+    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+    <input type="text" name="mood">
+    <input type="submit" value="Check Code">
+</form>

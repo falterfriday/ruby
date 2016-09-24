@@ -1,0 +1,7 @@
+<% if @link %>
+    <h3>You feel... <img src="<%=@link%>" alt="" /> today!</h3>
+<% else %>
+    <h3><%= @message %></h3>
+<% end %>
+
+<a href="/">Enter Another Mood</a>
